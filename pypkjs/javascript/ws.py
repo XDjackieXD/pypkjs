@@ -2,7 +2,7 @@ from __future__ import absolute_import
 __author__ = 'katharine'
 
 from gevent import monkey; monkey.patch_all()
-from gevent.greenlet import GreenletExit
+from greenlet import GreenletExit
 import struct
 import websocket
 
@@ -10,6 +10,7 @@ import STPyV8 as v8
 from .exceptions import JSRuntimeException
 from . import events
 
+'''
 close_event = v8.JSExtension("runtime/events/ws", """
 CloseEvent = function(eventInitDict) {
     Event.call(this, "close", eventInitDict);
@@ -60,7 +61,7 @@ _init_websocket = function(runtime, session) {
     this.WebSocket.CLOSED = 3;
 }
 """, lambda f: WebSocket, dependencies=[close_event.name])
-
+'''
 
 class WebSocket(events.EventSourceMixin):
     CONNECTING = 0

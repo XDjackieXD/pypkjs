@@ -6,7 +6,7 @@ import errno
 import logging
 import os
 import os.path
-import dumbdbm  # This is the only one that actually syncs data if the process dies before I can close().
+import dbm.dumb as dumbdbm  # This is the only one that actually syncs data if the process dies before I can close().
 logger = logging.getLogger("pypkjs.javascript.localstorage")
 
 _storage_cache = {}  # This is used when filesystem-based storage is unavailable.

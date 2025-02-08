@@ -5,6 +5,7 @@ import STPyV8 as v8
 
 from .exceptions import JSRuntimeException
 
+'''
 event = v8.JSExtension("runtime/event", """
     Event = function(event_type, event_init_dict) {
         var self = this;
@@ -32,6 +33,7 @@ event = v8.JSExtension("runtime/event", """
     Event.AT_TARGET = 2;
     Event.BUBBLING_PHASE = 3;
 """)
+'''
 
 Event = lambda runtime, *args: v8.JSObject.create(runtime.context.locals.Event, args)
 

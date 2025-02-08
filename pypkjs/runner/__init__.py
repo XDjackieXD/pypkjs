@@ -13,7 +13,7 @@ import logging
 import os
 import os.path
 import shutil
-import urlparse
+from urllib.parse import urlparse
 import urllib
 
 from libpebble2.util.bundle import PebbleBundle

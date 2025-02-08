@@ -5,7 +5,7 @@ import calendar
 import dateutil.parser
 import logging
 import struct
-import urlparse
+from urllib.parse import urlparse
 
 from libpebble2.protocol.timeline import TimelineAttribute
 

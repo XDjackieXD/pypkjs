@@ -13,6 +13,7 @@ from .exceptions import JSRuntimeException
 
 logger = logging.getLogger('pypkjs.javascript.pebble')
 
+'''
 make_proxy_extension = v8.JSExtension("runtime/internal/proxy", """
     function _make_proxies(proxy, origin, names) {
         names.forEach(function(name) {
@@ -36,7 +37,7 @@ make_proxy_extension = v8.JSExtension("runtime/internal/proxy", """
         return proxy;
     }
 """)
-
+'''
 
 class JSRuntime(object):
     def __init__(self, qemu, pbw, runner, persist_dir=None, block_private_addresses=False):

@@ -7,6 +7,7 @@ import requests
 import pygeoip
 import os.path
 
+'''
 position = v8.JSExtension("runtime/geolocation/position", """
     Position = (function(coords, timestamp) {
         this.coords = coords;
@@ -23,6 +24,7 @@ coordinates = v8.JSExtension("runtime/geolocation/coordinates", """
         this.accuracy = accuracy
     });
 """)
+'''
 
 Coordinates = lambda runtime, *args: v8.JSObject.create(runtime.context.locals.Coordinates, args)
 

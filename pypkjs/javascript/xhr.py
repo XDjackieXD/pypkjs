@@ -11,6 +11,7 @@ from . import events
 from .safe_requests import NonlocalHTTPAdapter
 from .exceptions import JSRuntimeException
 
+'''
 progress_event = v8.JSExtension("runtime/events/progress", """
 ProgressEvent = function(computable, loaded, total) {
     Event.call(this);
@@ -57,7 +58,7 @@ _init_xhr = function(runtime, session) {
 
 }
 """, lambda f: XMLHttpRequest, dependencies=[progress_event.name])
-
+'''
 
 class XMLHttpRequest(events.EventSourceMixin):
     UNSENT = 0
@@ -99,11 +100,11 @@ class XMLHttpRequest(events.EventSourceMixin):
         super(XMLHttpRequest, self).__init__(runtime)
 
 
-    def open(self, method, url, async=True, user=None, password=None):
+    def open(self, method, url, async_=True, user=None, password=None):
         self._request = requests.Request(method, url)
         if user is not None:
             self._request.auth = (user, password or "")
-        self._async = async
+        self._async = async_
         self.readyState = self.OPENED
         self._trigger_async_event("readystatechange")
 
