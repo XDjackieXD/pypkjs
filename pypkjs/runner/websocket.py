@@ -91,10 +91,10 @@ class WebsocketRunner(Runner):
         self.config_callback = callback
 
     def _handle_outbound(self, message):
-        self.broadcast(bytearray('\x01' + message))
+        self.broadcast(bytearray(b'\x01' + message))
 
     def _handle_inbound(self, message):
-        self.broadcast(bytearray('\x00' + message))
+        self.broadcast(bytearray(b'\x00' + message))
 
     def handle_ws(self, environ, start_response):
         if environ['PATH_INFO'] == '/':

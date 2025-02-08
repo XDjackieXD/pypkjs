@@ -3,7 +3,7 @@ __author__ = 'katharine'
 
 import signal
 import webbrowser
-import BaseHTTPServer
+import http.server as BaseHTTPServer
 import socket
 
 from . import Runner
@@ -16,7 +16,7 @@ class TerminalRunner(Runner):
         signal.signal(signal.SIGUSR1, self.handle_sigusr)
 
     def log_output(self, message):
-        print message.encode('utf-8')
+        print(message.encode('utf-8'))
 
     def open_config_page(self, url, callback):
         port = self._find_port()
